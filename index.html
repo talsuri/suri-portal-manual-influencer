@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SURI · Manual Entry</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <header>
+      <h1>SURI · Manual Entry</h1>
+      <p class="subtitle">Add a creator to the pipeline manually. Drop screenshots, fill in the basics, submit.</p>
+    </header>
+
+    <form id="entry-form" autocomplete="off">
+      <div class="field">
+        <label for="handle">Handle</label>
+        <input type="text" id="handle" name="handle" required placeholder="e.g. atravelingtreat (no @)" />
+      </div>
+
+      <div class="field">
+        <label>Platform</label>
+        <div class="radio-row">
+          <label class="radio"><input type="radio" name="platform" value="instagram" required /> Instagram</label>
+          <label class="radio"><input type="radio" name="platform" value="youtube" /> YouTube</label>
+          <label class="radio"><input type="radio" name="platform" value="substack" /> Substack</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Market</label>
+        <div class="radio-row">
+          <label class="radio"><input type="radio" name="market" value="UK" required /> UK</label>
+          <label class="radio"><input type="radio" name="market" value="US" /> US</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="owner">Owner</label>
+        <select id="owner" name="owner" required>
+          <option value="">— select —</option>
+          <option value="luna">Luna</option>
+          <option value="rosie">Rosie</option>
+          <option value="elizabeth">Elizabeth</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Stat screenshots / files</label>
+        <div id="dropzone" class="dropzone">
+          <div class="dropzone-prompt">
+            <strong>Drop files here</strong>
+            <span>or click to pick</span>
+            <small>up to 10 MB each, multi-select OK</small>
+          </div>
+          <input type="file" id="files" name="files" multiple accept="image/*,application/pdf" />
+        </div>
+        <ul id="file-list" class="file-list"></ul>
+      </div>
+
+      <div class="actions">
+        <button type="submit" id="submit-btn">Submit</button>
+      </div>
+
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+    </form>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
