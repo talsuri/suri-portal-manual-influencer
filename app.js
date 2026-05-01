@@ -97,13 +97,14 @@ form.addEventListener("submit", async (e) => {
   const market = form.querySelector('input[name="market"]:checked')?.value;
   const owner = document.getElementById("owner").value;
   const driveLink = document.getElementById("drive_link").value.trim();
+  const mediaKitLink = document.getElementById("media_kit_link").value.trim();
 
   if (!handle) return setStatus("error", "Handle is required");
   if (!platform) return setStatus("error", "Pick a platform");
   if (!market) return setStatus("error", "Pick a market");
   if (!owner) return setStatus("error", "Pick an owner");
-  if (queuedFiles.length === 0 && !driveLink) {
-    return setStatus("error", "Add at least one stat screenshot OR paste a Drive folder URL");
+  if (queuedFiles.length === 0 && !driveLink && !mediaKitLink) {
+    return setStatus("error", "Add screenshots OR a Drive folder URL OR a media kit URL");
   }
 
   const formData = new FormData();
@@ -112,6 +113,7 @@ form.addEventListener("submit", async (e) => {
   formData.append("market", market);
   formData.append("owner", owner);
   if (driveLink) formData.append("drive_link", driveLink);
+  if (mediaKitLink) formData.append("media_kit_link", mediaKitLink);
   queuedFiles.forEach((f) => formData.append("files", f, f.name));
 
   submitBtn.disabled = true;
