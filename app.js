@@ -2,7 +2,7 @@
 // WEBHOOK_URL: your n8n webhook production URL (after activating the W4 workflow).
 // API_KEY: matches the secret in W4's "Auth Check" node.
 const CONFIG = {
-  WEBHOOK_URL: "https://trysuri.app.n8n.cloud/webhook-test/manual-entry",
+  WEBHOOK_URL: "https://trysuri.app.n8n.cloud/webhook/manual-entry",
   API_KEY: "0b211913c38da5a95b1e44205526b3dc41a875c70c37f3b2",
   MAX_FILE_BYTES: 10 * 1024 * 1024 // 10 MB per file
 };
